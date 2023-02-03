@@ -1637,6 +1637,7 @@ section.meetings-page .pagination ul li a:hover {
   font-weight: 700;
   display: inline-block;
   margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .meeting-single-item .down-content p {
