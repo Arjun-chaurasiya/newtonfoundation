@@ -285,6 +285,8 @@
                                           <div class="col-lg-12">
                                               <fieldset>
                                                   <button type="submit" id="form-submit" onclick="generateRegistrationNumber()" class="button">SEND MESSAGE NOW</button>
+                                                  <button type="submit" id="form-submit" class="button">SEND MESSAGE NOW</button>
+
                                               </fieldset>
                                           </div>
                                       </div>
@@ -300,72 +302,57 @@
                                   generateRegistrationNumber(); // Generate the registration number
 
                                   const printWindow = window.open("", "_blank");
-                                  // ... rest of the code ...
-                              }
-
-                              function generateRegistrationNumber() {
-                                  var currentDate = new Date();
-                                  var formattedDate = currentDate.toISOString().slice(0, 10).replace(/-/g, ''); // Format date as YYYYMMDD
-                                  var studentPhone = document.getElementById("MobileNumber").value; // Get mobile number from the form
-                                  var registrationNumber = "NF-" + formattedDate + studentPhone; // Combine phone number and date
-
-                                  // Set the generated registration number in the form field
-                                  document.getElementById("registrationNumber").value = registrationNumber;
-                              }
-                              function submitForm() {
-                                  const printWindow = window.open("", "_blank");
                                   printWindow.document.open();
                                   printWindow.document.write("<html><head><title>Print</title>");
 
                                   printWindow.document.write(`
-                                                                <style>
-                                                                    body {
-                                                                        font-family: Arial, sans-serif;
-                                                                    }
-                                                                    h2 {
-                                                                        color: #333;
-                                                                    }
-                                                                    p {
-                                                                        text-align: left;
-                                                                    }
-                                                                    .print-button {
-                                                                        display: none; /* Hide the button when printing */
-                                                                    }
+                                              <style>
+                                                  body {
+                                                      font-family: Arial, sans-serif;
+                                                  }
+                                                  h2 {
+                                                      color: #333;
+                                                  }
+                                                  p {
+                                                      text-align: left;
+                                                  }
+                                                  .print-button {
+                                                      display: none; /* Hide the button when printing */
+                                                  }
 
-                                                                    /* Set background color for screen */
-                                                                    @media screen {
-                                                                        body {
-                                                                            background-color: #ffcccc;
-                                                                            padding: 88px;
-                                                                            text-align: center;
-                                                                        }
-                                                                        .print-button {
-                                                                            display: block; /* Show the button for screen view */
-                                                                            margin: 20px auto;
-                                                                            padding: 10px 20px;
-                                                                            background-color: #e74c3c;
-                                                                            color: white;
-                                                                            border: none;
-                                                                            border-radius: 5px;
-                                                                            cursor: pointer;
-                                                                        }
-                                                                        .print-button:hover {
-                                                                            background-color: #c0392b;
-                                                                        }
-                                                                    }
+                                                  /* Set background color for screen */
+                                                  @media screen {
+                                                      body {
+                                                          background-color: #ffcccc;
+                                                          padding: 88px;
+                                                          text-align: center;
+                                                      }
+                                                      .print-button {
+                                                          display: block; /* Show the button for screen view */
+                                                          margin: 20px auto;
+                                                          padding: 10px 20px;
+                                                          background-color: #e74c3c;
+                                                          color: white;
+                                                          border: none;
+                                                          border-radius: 5px;
+                                                          cursor: pointer;
+                                                      }
+                                                      .print-button:hover {
+                                                          background-color: #c0392b;
+                                                      }
+                                                  }
 
-                                                                    /* Set background color for print */
-                                                                    @media print {
-                                                                        body {
-                                                                            background-color: #ffcccc; /* Same background color for printing */
-                                                                        }
-                                                                    }
-                                                                </style>
-                                                            `);
+                                                  /* Set background color for print */
+                                                  @media print {
+                                                      body {
+                                                          background-color: #ffcccc; /* Same background color for printing */
+                                                      }
+                                                  }
+                                              </style>
+                                          `);
 
                                   printWindow.document.write("</head><body>");
-                                  printWindow.document.write("<h2>STUDENT REGISTRATION FROM</h2>");
-
+                                  printWindow.document.write("<h2>STUDENT REGISTRATION FORM</h2>");
 
                                   const formFields = document.querySelectorAll('input, select, textarea');
                                   formFields.forEach(function (field) {
@@ -389,10 +376,17 @@
                                   return false;
                               }
 
-                          
-                        
+                              function generateRegistrationNumber() {
+                                  var currentDate = new Date();
+                                  var formattedDate = currentDate.toISOString().slice(0, 10).replace(/-/g, ''); // Format date as YYYYMMDD
+                                  var studentPhone = document.getElementById("MobileNumber").value; // Get mobile number from the form
+                                  var registrationNumber = "NF-" + formattedDate + studentPhone; // Combine phone number and date
 
+                                  // Set the generated registration number in the form field
+                                  document.getElementById("registrationNumber").value = registrationNumber;
+                              }
                           </script>
+
 
 
 
